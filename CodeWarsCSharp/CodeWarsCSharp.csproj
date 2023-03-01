@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.14.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.14.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54EE76CE-2C3A-406B-AF5A-8DC030EF5FF6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CodeWarsCSharp</RootNamespace>
+    <AssemblyName>CodeWarsCSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>9.0</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="CodeWars\CodeWars.csproj" />
+    <None Include="CodeWarTests\CodeWarTests.csproj" />
+    <None Include="ConsoleXTests\ConsoleXTests.csproj" />
+    <None Include="ConsoleX\ConsoleX.csproj" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CodeWars\5kyu\" />
+    <Folder Include="CodeWarTests\5kyu\" />
+    <Folder Include="CodeWarTests\7kyu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeWars\6kyu\ArrayDiff.cs" />
+    <Compile Include="CodeWars\6kyu\BigNumber.cs" />
+    <Compile Include="CodeWars\6kyu\Century.cs" />
+    <Compile Include="CodeWars\6kyu\LeetCase.cs" />
+    <Compile Include="CodeWars\7kyu\PowerOfTwo.cs" />
+    <Compile Include="CodeWars\8kyu\Greatestcs.cs" />
+    <Compile Include="CodeWars\8kyu\HQ9interpreter.cs" />
+    <Compile Include="CodeWars\8kyu\UEFAEURO2016.cs" />
+    <Compile Include="CodeWars\8kyu\_101Dalmatins.cs" />
+    <Compile Include="CodeWarTests\6kyu\ArrayDiffTests.cs" />
+    <Compile Include="CodeWarTests\6kyu\CenturyTests.cs" />
+    <Compile Include="CodeWarTests\8kyu\GreatestTests.cs" />
+    <Compile Include="CodeWarTests\8kyu\HQ9interpreterTests.cs" />
+    <Compile Include="CodeWarTests\8kyu\UEFAEURO2016Tests.cs" />
+    <Compile Include="CodeWarTests\8kyu\_101DalmatinsTests.cs" />
+    <Compile Include="ConsoleX\Program.cs" />
+    <Compile Include="ConsoleXTests\ProgramTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.3\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.14.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.14.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+</Project>
